@@ -42,8 +42,11 @@ class DevServer extends BaseClass<any> {
         // 服务端资源文件
         pack.watchServerStatic();
 
+        // 客户端资源文件
+        pack.watchClientStatic();
+
         this.logger.warn('项目运行前需要打包「client」，请稍后...');
-        await Promise.all([pack.watchClient()]);
+        await Promise.all([pack.watchClient(), pack.watchCss()]);
         this.logger.success('打包「client」结束');
 
         pack.watchServer();

@@ -28,6 +28,8 @@ class Builder extends BaseClass<Params> {
         }
 
         await pack.compileClient();
+        await pack.compileClientStatic();
+        await pack.clientCssCompile();
         await pack.compileServerStatic();
         await pack.compileServer();
     }
